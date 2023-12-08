@@ -13,7 +13,7 @@ function update(time) {
     const delta = time - lastTime;
 
     // PLAY THE GAME CODE
-    // ball.update(delta, [playerPaddle.rect(), computerPaddle.rect()]);
+    ball.update(delta, [playerPaddle.rect(), computerPaddle.rect()]);
 
     computerPaddle.update(delta, ball.y);
     const hue = parseFloat(
