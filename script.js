@@ -12,10 +12,16 @@ function update(time) {
   if (lastTime != null) {
     const delta = time - lastTime;
 
-    // PLAY THE GAME
+    // PLAY THE GAME CODE
     // ball.update(delta, [playerPaddle.rect(), computerPaddle.rect()]);
 
     computerPaddle.update(delta, ball.y);
+    const hue = parseFloat(
+      getComputedStyle(document.documentElement).getPropertyValue("--hue")
+    );
+
+    // change hue overtime
+    document.documentElement.style.setProperty("--hue", hue + delta * 0.005);
 
     if (isLose()) handleLose();
   }
